@@ -3,564 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Beautiful Ella 💕</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 30px;
-            padding: 50px;
-            max-width: 800px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: fadeIn 1s ease-in;
-            position: relative;
-            z-index: 1;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            color: #764ba2;
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .message {
-            color: #333;
-            line-height: 1.8;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .highlight {
-            color: #764ba2;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        .button-container {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 25px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        button:active {
-            transform: translateY(-1px);
-        }
-
-        .heart {
-            position: fixed;
-            font-size: 30px;
-            animation: float 3s ease-in-out infinite;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .memory-box {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            display: none;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .memory-box.active {
-            display: block;
-        }
-
-        .reason-list {
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-            padding: 20px;
-            border-radius: 15px;
-            margin: 20px 0;
-            display: none;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        .reason-list.active {
-            display: block;
-        }
-
-        .reason-list ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .reason-list li {
-            padding: 10px;
-            margin: 5px 0;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .reason-list li:hover {
-            background: rgba(255, 255, 255, 0.8);
-            transform: translateX(10px);
-        }
-
-        .photo-gallery {
-            display: none;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .photo-gallery.active {
-            display: grid;
-        }
-
-        .photo-placeholder {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            height: 200px;
-            border-radius: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 3em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .photo-placeholder:hover {
-            transform: scale(1.05) rotate(2deg);
-        }
-
-        .countdown {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin: 20px 0;
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .countdown.active {
-            display: block;
-        }
-
-        .countdown-number {
-            font-size: 3em;
-            font-weight: bold;
-            color: #764ba2;
-            margin: 10px 0;
-        }
-
-        .easter-egg {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            font-size: 2em;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-        }
-
-        .easter-egg:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .secret-message {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            animation: popIn 0.5s ease-out;
-            max-width: 90%;
-        }
-
-        @keyframes popIn {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        .secret-message.active {
-            display: block;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1999;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #f5576c;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-
-            h1 {
-                font-size: 1.8em;
-            }
-
-            .message {
-                font-size: 1em;
-            }
-
-            button {
-                padding: 12px 24px;
-                font-size: 1em;
-            }
-        }
-
-        .sparkle {
-            position: fixed;
-            pointer-events: none;
-            animation: sparkleFloat 2s ease-out forwards;
-            z-index: 9999;
-        }
-
-        @keyframes sparkleFloat {
-            0% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100px) scale(0);
-            }
-        }
-
-        .love-letter {
-            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            display: none;
-            animation: slideIn 0.5s ease-out;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            border-left: 5px solid #764ba2;
-        }
-
-        .love-letter.active {
-            display: block;
-        }
-
-        .love-letter p {
-            margin: 15px 0;
-            line-height: 1.8;
-            color: #2d3436;
-        }
-
-        .signature {
-            text-align: right;
-            font-style: italic;
-            margin-top: 20px;
-            color: #764ba2;
-            font-weight: bold;
-        }
-    </style>
+    <title>For My Beloved Ella 💕</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Floating hearts -->
-    <div class="heart" style="top: 10%; left: 10%;">💕</div>
-    <div class="heart" style="top: 20%; right: 15%; animation-delay: 0.5s;">💖</div>
-    <div class="heart" style="bottom: 15%; left: 20%; animation-delay: 1s;">💗</div>
-    <div class="heart" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💝</div>
-    <div class="heart" style="top: 50%; left: 5%; animation-delay: 2s;">💘</div>
-    <div class="heart" style="top: 40%; right: 5%; animation-delay: 2.5s;">💓</div>
-
-    <div class="container">
-        <h1>For My Beautiful Ella 💕</h1>
-        
-        <div class="message">
-            <p>Hey there, gorgeous! 🌟</p>
-            <p>I created this little space just for you, because you deserve something as special as you are.</p>
-            <p class="highlight">You light up my world in ways you can't even imagine! ✨</p>
+    <!-- Floating hearts animation -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="glowing-text">To My Dearest Ella</h1>
+            <p class="subtitle">Every moment with you is a treasure 💝</p>
+            <button class="cta-button" onclick="revealLetter()">Read My Love Letter</button>
         </div>
+    </section>
 
-        <div class="button-container">
-            <button onclick="showReasons()">Why You're Amazing 🌟</button>
-            <button onclick="showMemories()">Our Memories 📸</button>
-            <button onclick="showLetter()">Read My Letter 💌</button>
-            <button onclick="showCountdown()">Days We've Smiled ⏰</button>
-        </div>
-
-        <div class="reason-list" id="reasons">
-            <h2 style="color: #764ba2; margin-bottom: 15px;">Reasons Why You're Incredible:</h2>
-            <ul>
-                <li>💫 Your smile brightens even the cloudiest days</li>
-                <li>🌸 Your laugh is my favorite sound in the world</li>
-                <li>💝 Your kindness touches everyone around you</li>
-                <li>✨ Your strength inspires me every single day</li>
-                <li>🎨 Your creativity makes the world more beautiful</li>
-                <li>💕 Your presence makes everything better</li>
-                <li>🌟 You're simply unforgettable</li>
-                <li>💖 You make my heart skip a beat</li>
-                <li>🌺 Your beauty (inside and out) is breathtaking</li>
-                <li>💫 You're one of a kind, and I'm so lucky</li>
-            </ul>
-        </div>
-
-        <div class="memory-box" id="memories">
-            <h2 style="color: #764ba2; margin-bottom: 15px;">Beautiful Moments 📸</h2>
-            <p style="margin-bottom: 20px;">Every moment with you becomes a cherished memory...</p>
-            <div class="photo-gallery active">
-                <div class="photo-placeholder" onclick="showPhotoMessage(1)">📷</div>
-                <div class="photo-placeholder" onclick="showPhotoMessage(2)">📷</div>
-                <div class="photo-placeholder" onclick="showPhotoMessage(3)">📷</div>
-                <div class="photo-placeholder" onclick="showPhotoMessage(4)">📷</div>
+    <!-- Love Quotes Carousel -->
+    <section class="quotes-section">
+        <div class="quote-carousel">
+            <div class="quote active">
+                <p>"In your smile, I find my reason to smile every day."</p>
+            </div>
+            <div class="quote">
+                <p>"You are my today and all of my tomorrows."</p>
+            </div>
+            <div class="quote">
+                <p>"With you, I am home."</p>
+            </div>
+            <div class="quote">
+                <p>"You make my heart skip a beat and my soul sing."</p>
             </div>
         </div>
-
-        <div class="love-letter" id="letter">
-            <h2 style="color: #764ba2; margin-bottom: 20px;">A Letter For You 💌</h2>
-            <p>My Dearest Ella,</p>
-            <p>Words seem insufficient when I try to express what you mean to me. You've brought so much light, joy, and love into my life that I can't imagine my days without you in them.</p>
-            <p>Every conversation we have, every laugh we share, every moment we spend together - they all add up to something truly magical. You have this incredible way of making everything feel right, of turning ordinary moments into extraordinary memories.</p>
-            <p>I want you to know that you are appreciated, you are valued, and you are loved more than you could ever imagine. Thank you for being the amazing person you are.</p>
-            <p>Keep shining, beautiful soul. The world is better with you in it, and I'm grateful every day that I get to know you.</p>
-            <p class="signature">Forever yours, 💕<br>Someone who adores you</p>
+        <div class="quote-dots">
+            <span class="dot active" onclick="showQuote(0)"></span>
+            <span class="dot" onclick="showQuote(1)"></span>
+            <span class="dot" onclick="showQuote(2)"></span>
+            <span class="dot" onclick="showQuote(3)"></span>
         </div>
+    </section>
 
-        <div class="countdown" id="countdown">
-            <h2 style="color: #764ba2; margin-bottom: 15px;">Our Journey Together ⏰</h2>
-            <p>Days since you made my world brighter:</p>
-            <div class="countdown-number" id="days">365</div>
-            <p>And counting... every single one has been worth it! 💕</p>
-        </div>
-    </div>
-
-    <div class="easter-egg" onclick="revealSecret()" title="Click me! 🎁">
-        🎁
-    </div>
-
-    <div class="overlay" id="overlay" onclick="closeSecret()"></div>
-    <div class="secret-message" id="secret">
-        <button class="close-btn" onclick="closeSecret()">×</button>
-        <h2 style="color: #764ba2; margin-bottom: 20px;">You Found It! 🎉</h2>
-        <p style="font-size: 1.2em; line-height: 1.8; color: #333;">
-            I knew you'd click around! That's one of the things I love about you - your curiosity and sense of adventure. 
-            You're not afraid to explore and discover new things. Keep being your wonderful, adventurous self! 
-            The world needs more people like you. 💖
-        </p>
-        <p style="margin-top: 20px; text-align: center; color: #764ba2; font-weight: bold;">
-            You're absolutely amazing, Ella! 🌟
-        </p>
-    </div>
-
-    <script>
-        let reasonsShown = false;
-        let memoriesShown = false;
-        let letterShown = false;
-        let countdownShown = false;
-
-        function showReasons() {
-            const element = document.getElementById('reasons');
-            reasonsShown = !reasonsShown;
-            element.classList.toggle('active');
-            createSparkles(event);
-        }
-
-        function showMemories() {
-            const element = document.getElementById('memories');
-            memoriesShown = !memoriesShown;
-            element.classList.toggle('active');
-            createSparkles(event);
-        }
-
-        function showLetter() {
-            const element = document.getElementById('letter');
-            letterShown = !letterShown;
-            element.classList.toggle('active');
-            createSparkles(event);
-        }
-
-        function showCountdown() {
-            const element = document.getElementById('countdown');
-            countdownShown = !countdownShown;
-            element.classList.toggle('active');
-            
-            if (countdownShown) {
-                // Calculate days since a special date (modify this date as needed)
-                const startDate = new Date('2024-01-01');
-                const today = new Date();
-                const diffTime = Math.abs(today - startDate);
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                document.getElementById('days').textContent = diffDays;
-            }
-            createSparkles(event);
-        }
-
-        function showPhotoMessage(photoNum) {
-            const messages = [
-                "This represents every time you made me smile! 😊",
-                "This captures all our amazing conversations! 💬",
-                "This is for every laugh we've shared! 😄",
-                "This symbolizes all the joy you bring! 🌈"
-            ];
-            alert(messages[photoNum - 1]);
-            createSparkles(event);
-        }
-
-        function revealSecret() {
-            document.getElementById('secret').classList.add('active');
-            document.getElementById('overlay').classList.add('active');
-            createSparkles(event);
-        }
-
-        function closeSecret() {
-            document.getElementById('secret').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-
-        function createSparkles(event) {
-            for (let i = 0; i < 10; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.textContent = ['✨', '💫', '⭐', '🌟'][Math.floor(Math.random() * 4)];
-                sparkle.style.left = (event.clientX + (Math.random() - 0.5) * 100) + 'px';
-                sparkle.style.top = (event.clientY + (Math.random() - 0.5) * 100) + 'px';
-                sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
-                document.body.appendChild(sparkle);
+    <!-- Love Letter Section -->
+    <section class="letter-section" id="letterSection">
+        <div class="letter-container">
+            <div class="letter-paper">
+                <h2>My Dearest Ella,</h2>
+                <p>Words cannot fully express how much you mean to me. Every day I spend with you feels like a beautiful dream that I never want to end.</p>
                 
-                setTimeout(() => sparkle.remove(), 2000);
-            }
-        }
+                <p>You light up my world in ways I never knew were possible. Your laugh is my favorite sound, your smile is my favorite sight, and your happiness is my greatest wish.</p>
+                
+                <p>I promise to cherish every moment we share, to support you in all your dreams, and to love you more with each passing day.</p>
+                
+                <p>Thank you for being you, for being mine, and for making life so wonderfully beautiful.</p>
+                
+                <p class="signature">Forever yours,<br>Your Loving Partner 💕</p>
+            </div>
+        </div>
+    </section>
 
-        // Add random floating hearts periodically
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.textContent = ['💕', '💖', '💗', '💝', '💘', '💓'][Math.floor(Math.random() * 6)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.top = Math.random() * 100 + '%';
-            heart.style.animationDelay = Math.random() * 2 + 's';
-            document.body.appendChild(heart);
-            
-            setTimeout(() => heart.remove(), 6000);
-        }, 3000);
+    <!-- Our Story Timeline -->
+    <section class="timeline-section">
+        <h2 class="section-title">Our Beautiful Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon">💫</div>
+                <div class="timeline-content">
+                    <h3>The First Hello</h3>
+                    <p>When our eyes first met, I knew something magical was about to begin.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">💝</div>
+                <div class="timeline-content">
+                    <h3>First Date</h3>
+                    <p>That wonderful evening when time seemed to stand still, and we talked for hours.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">🌟</div>
+                <div class="timeline-content">
+                    <h3>Falling Deeper</h3>
+                    <p>Every moment together made my heart more certain - you're the one.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon">💕</div>
+                <div class="timeline-content">
+                    <h3>Forever Starts Now</h3>
+                    <p>Looking forward to all our tomorrows together, my love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Add click effect to title
-        document.querySelector('h1').addEventListener('click', function(e) {
-            this.style.transform = 'scale(1.1) rotate(5deg)';
-            setTimeout(() => {
-                this.style.transform = 'scale(1) rotate(0deg)';
-            }, 300);
-            createSparkles(e);
-        });
-    </script>
+    <!-- Interactive Tulip Garden -->
+    <section class="garden-section">
+        <h2 class="section-title">A Garden Just For You</h2>
+        <p class="garden-subtitle">Click on the tulips to see them bloom! 🌷</p>
+        <div class="tulip-garden">
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+            <div class="tulip" onclick="bloomTulip(this)">
+                <div class="tulip-stem"></div>
+                <div class="tulip-flower">🌷</div>
+            </div>
+        </div>
+    </section>
 
-    <footer style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center; color: white; font-size: 0.9em; z-index: 1;">
-        <p>Coded with love just for you my Ella</p>
-        <p class="easter-egg-hint" id="easter-egg-hint">Just try clicking on different things 😉</p>
+    <!-- Promises Section -->
+    <section class="promises-section">
+        <h2 class="section-title">My Promises to You</h2>
+        <div class="promises-grid">
+            <div class="promise-card">
+                <div class="promise-icon">🤗</div>
+                <h3>Always Support You</h3>
+                <p>I'll be your biggest cheerleader in all your endeavors</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">😊</div>
+                <h3>Make You Smile</h3>
+                <p>To bring joy to your days, even on the cloudy ones</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">💖</div>
+                <h3>Love You Unconditionally</h3>
+                <p>Through every season, my love will only grow stronger</p>
+            </div>
+            <div class="promise-card">
+                <div class="promise-icon">🌟</div>
+                <h3>Cherish Every Moment</h3>
+                <p>To treasure each second we spend together</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with 💕 just for you, my Ella</p>
+        <p class="footer-note">Psst... try clicking on different things 😉</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
