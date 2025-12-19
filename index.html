@@ -3,557 +3,564 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Ella 💕</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Satisfy&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <title>For My Beautiful Ella 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-in;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #764ba2;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .message {
+            color: #333;
+            line-height: 1.8;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: translateY(-1px);
+        }
+
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            animation: float 3s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .memory-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .memory-box.active {
+            display: block;
+        }
+
+        .reason-list {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .reason-list.active {
+            display: block;
+        }
+
+        .reason-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .reason-list li {
+            padding: 10px;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .reason-list li:hover {
+            background: rgba(255, 255, 255, 0.8);
+            transform: translateX(10px);
+        }
+
+        .photo-gallery {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .photo-gallery.active {
+            display: grid;
+        }
+
+        .photo-placeholder {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            height: 200px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .countdown {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .countdown.active {
+            display: block;
+        }
+
+        .countdown-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #764ba2;
+            margin: 10px 0;
+        }
+
+        .easter-egg {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 2em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .easter-egg:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .secret-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            animation: popIn 0.5s ease-out;
+            max-width: 90%;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .secret-message.active {
+            display: block;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f5576c;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .message {
+                font-size: 1em;
+            }
+
+            button {
+                padding: 12px 24px;
+                font-size: 1em;
+            }
+        }
+
+        .sparkle {
+            position: fixed;
+            pointer-events: none;
+            animation: sparkleFloat 2s ease-out forwards;
+            z-index: 9999;
+        }
+
+        @keyframes sparkleFloat {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) scale(0);
+            }
+        }
+
+        .love-letter {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            display: none;
+            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #764ba2;
+        }
+
+        .love-letter.active {
+            display: block;
+        }
+
+        .love-letter p {
+            margin: 15px 0;
+            line-height: 1.8;
+            color: #2d3436;
+        }
+
+        .signature {
+            text-align: right;
+            font-style: italic;
+            margin-top: 20px;
+            color: #764ba2;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-heart">💖</div>
-            <h2 class="loading-text">Loading something special...</h2>
-            <p class="loading-subtext">Made with love for my Ella</p>
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
+    <!-- Floating hearts -->
+    <div class="heart" style="top: 10%; left: 10%;">💕</div>
+    <div class="heart" style="top: 20%; right: 15%; animation-delay: 0.5s;">💖</div>
+    <div class="heart" style="bottom: 15%; left: 20%; animation-delay: 1s;">💗</div>
+    <div class="heart" style="bottom: 25%; right: 10%; animation-delay: 1.5s;">💝</div>
+    <div class="heart" style="top: 50%; left: 5%; animation-delay: 2s;">💘</div>
+    <div class="heart" style="top: 40%; right: 5%; animation-delay: 2.5s;">💓</div>
+
+    <div class="container">
+        <h1>For My Beautiful Ella 💕</h1>
+        
+        <div class="message">
+            <p>Hey there, gorgeous! 🌟</p>
+            <p>I created this little space just for you, because you deserve something as special as you are.</p>
+            <p class="highlight">You light up my world in ways you can't even imagine! ✨</p>
+        </div>
+
+        <div class="button-container">
+            <button onclick="showReasons()">Why You're Amazing 🌟</button>
+            <button onclick="showMemories()">Our Memories 📸</button>
+            <button onclick="showLetter()">Read My Letter 💌</button>
+            <button onclick="showCountdown()">Days We've Smiled ⏰</button>
+        </div>
+
+        <div class="reason-list" id="reasons">
+            <h2 style="color: #764ba2; margin-bottom: 15px;">Reasons Why You're Incredible:</h2>
+            <ul>
+                <li>💫 Your smile brightens even the cloudiest days</li>
+                <li>🌸 Your laugh is my favorite sound in the world</li>
+                <li>💝 Your kindness touches everyone around you</li>
+                <li>✨ Your strength inspires me every single day</li>
+                <li>🎨 Your creativity makes the world more beautiful</li>
+                <li>💕 Your presence makes everything better</li>
+                <li>🌟 You're simply unforgettable</li>
+                <li>💖 You make my heart skip a beat</li>
+                <li>🌺 Your beauty (inside and out) is breathtaking</li>
+                <li>💫 You're one of a kind, and I'm so lucky</li>
+            </ul>
+        </div>
+
+        <div class="memory-box" id="memories">
+            <h2 style="color: #764ba2; margin-bottom: 15px;">Beautiful Moments 📸</h2>
+            <p style="margin-bottom: 20px;">Every moment with you becomes a cherished memory...</p>
+            <div class="photo-gallery active">
+                <div class="photo-placeholder" onclick="showPhotoMessage(1)">📷</div>
+                <div class="photo-placeholder" onclick="showPhotoMessage(2)">📷</div>
+                <div class="photo-placeholder" onclick="showPhotoMessage(3)">📷</div>
+                <div class="photo-placeholder" onclick="showPhotoMessage(4)">📷</div>
             </div>
-            <button class="start-button" id="start-button" style="display: none;">Click to Start 💕</button>
+        </div>
+
+        <div class="love-letter" id="letter">
+            <h2 style="color: #764ba2; margin-bottom: 20px;">A Letter For You 💌</h2>
+            <p>My Dearest Ella,</p>
+            <p>Words seem insufficient when I try to express what you mean to me. You've brought so much light, joy, and love into my life that I can't imagine my days without you in them.</p>
+            <p>Every conversation we have, every laugh we share, every moment we spend together - they all add up to something truly magical. You have this incredible way of making everything feel right, of turning ordinary moments into extraordinary memories.</p>
+            <p>I want you to know that you are appreciated, you are valued, and you are loved more than you could ever imagine. Thank you for being the amazing person you are.</p>
+            <p>Keep shining, beautiful soul. The world is better with you in it, and I'm grateful every day that I get to know you.</p>
+            <p class="signature">Forever yours, 💕<br>Someone who adores you</p>
+        </div>
+
+        <div class="countdown" id="countdown">
+            <h2 style="color: #764ba2; margin-bottom: 15px;">Our Journey Together ⏰</h2>
+            <p>Days since you made my world brighter:</p>
+            <div class="countdown-number" id="days">365</div>
+            <p>And counting... every single one has been worth it! 💕</p>
         </div>
     </div>
 
-    <!-- Cursor Trail Canvas -->
-    <canvas id="cursor-trail"></canvas>
-
-    <!-- Music Player -->
-    <audio id="background-music" loop>
-        <source src="Taylor Swift - The Alchemy (Official Lyric Video).mp3" type="audio/mpeg">
-    </audio>
-    <div class="music-player" id="music-player">
-        <button class="music-toggle" id="music-toggle" aria-label="Toggle Music">
-            <span class="music-icon">🎵</span>
-            <span class="music-status">Play Music</span>
-        </button>
+    <div class="easter-egg" onclick="revealSecret()" title="Click me! 🎁">
+        🎁
     </div>
 
-    <!-- Floating Hearts Background -->
-    <div class="hearts-bg" aria-hidden="true">
-        <span class="heart">💕</span>
-        <span class="heart">🌷</span>
-        <span class="heart">💖</span>
-        <span class="heart">🌷</span>
-        <span class="heart">💗</span>
-        <span class="heart">🌷</span>
-        <span class="heart">💓</span>
-        <span class="heart">🌷</span>
-        <span class="heart">💕</span>
-        <span class="heart">🌷</span>
+    <div class="overlay" id="overlay" onclick="closeSecret()"></div>
+    <div class="secret-message" id="secret">
+        <button class="close-btn" onclick="closeSecret()">×</button>
+        <h2 style="color: #764ba2; margin-bottom: 20px;">You Found It! 🎉</h2>
+        <p style="font-size: 1.2em; line-height: 1.8; color: #333;">
+            I knew you'd click around! That's one of the things I love about you - your curiosity and sense of adventure. 
+            You're not afraid to explore and discover new things. Keep being your wonderful, adventurous self! 
+            The world needs more people like you. 💖
+        </p>
+        <p style="margin-top: 20px; text-align: center; color: #764ba2; font-weight: bold;">
+            You're absolutely amazing, Ella! 🌟
+        </p>
     </div>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-particles" id="hero-particles"></div>
-        <div class="hero-content">
-            <div class="heart-burst" id="heart-burst"></div>
-            <h1 class="title animate-fade-in">To My Dearest Ella</h1>
-            <p class="subtitle animate-fade-in-delay">My love, my best friend, my everything 💝</p>
-            <p class="anniversary-badge animate-fade-in-delay">Together since June 29, 2023 🌷</p>
-            <div class="hero-cta animate-fade-in-delay">
-                <button class="surprise-btn" id="surprise-btn">✨ Click for a Surprise ✨</button>
-            </div>
-            <div class="scroll-indicator animate-bounce">
-                <span>↓</span>
-            </div>
-        </div>
-    </header>
+    <script>
+        let reasonsShown = false;
+        let memoriesShown = false;
+        let letterShown = false;
+        let countdownShown = false;
 
-    <!-- Love Quotes Carousel -->
-    <section class="quotes-section">
-        <div class="container">
-            <div class="quotes-carousel" id="quotes-carousel">
-                <div class="quote-card active">
-                    <p class="quote-text">"Even if the world turns against you, my heart will always choose you."</p>
-                    <span class="quote-author"> Wang So, Scarlet Heart E8 💕</span>
-                </div>
-                <div class="quote-card">
-                    <p class="quote-text">"I learned what tenderness was only after I met you."</p>
-                    <span class="quote-author"> Wang So, Scarlet Heart E9 🌷</span>
-                </div>
-                <div class="quote-card">
-                    <p class="quote-text">"Loving you was never a mistake."</p>
-                    <span class="quote-author"> Hae Soo, Scarlet Heart E10 💖</span>
-                </div>
-                <div class="quote-card">
-                    <p class="quote-text">"If fate pulls us apart, my love will still find you."</p>
-                    <span class="quote-author"> Wang So, Scarlet Heart E14 💕</span>
-                </div>
-                <div class="quote-card">
-                    <p class="quote-text">"To protect you, I would carry every scar without regret."</p>
-                    <span class="quote-author"> Wang So, Scarlet Heart E16 🌷</span>
-                </div>
-            </div>
-            <div class="quote-dots" id="quote-dots"></div>
-        </div>
-    </section>
+        function showReasons() {
+            const element = document.getElementById('reasons');
+            reasonsShown = !reasonsShown;
+            element.classList.toggle('active');
+            createSparkles(event);
+        }
 
-    <!-- Love Letter Section -->
-    <section class="love-letter">
-        <div class="container">
-            <h2 class="section-title">My Dearest Ella</h2>
-            <div class="letter-content" id="love-letter">
-                <div class="letter-envelope" id="letter-envelope">
-                    <div class="envelope-flap"></div>
-                    <div class="envelope-body">
-                        <span class="envelope-heart">💌</span>
-                        <p>Click to open my letter</p>
-                    </div>
-                </div>
-                <div class="letter-paper" id="letter-paper">
-                    <p class="letter-text">My Ella, I still can't believe how I found you. Who would have thought that a random Valorant match would lead me to the love of my life? From the moment we started bonding, I knew there was something special about you. And when we finally met in person, my heart just knew, you were the one.</p>
-                    <p class="letter-text">I know the distance between us isn't always easy. There are days when I wish I could just hold you, see your smile in person, and spend every hour of the day by your side. But even with all this distance between us, my love for you only grows stronger each day that passes. You're worth every wait, every long call, every countdown till we see each other again.</p>
-                    <p class="letter-text">Thank you for everything, mahal. We've been through so much, every laugh, every late night call and bebe time, every game we've played, every tear we've shared, every fight, all of it has made us stronger. You've been my comfort, my happiness, and of course, my home, even when we're miles apart.</p>
-                    <p class="letter-text">I appreciate you more than words, Ella ko. Your patience for waiting for us to meet again, your love, your understanding, you make me want to be the best version of myself. I've always been so grateful that you chose me, that you continue to choose me, and that we're building this beautiful, endless love story together. I love you.</p>
-                    <p class="letter-text signature">
-                        Forever and always yours,<br>
-                        <span class="name">Andrei 💕</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
+        function showMemories() {
+            const element = document.getElementById('memories');
+            memoriesShown = !memoriesShown;
+            element.classList.toggle('active');
+            createSparkles(event);
+        }
 
-    <!-- Our Story Section -->
-    <section class="our-story">
-        <div class="container">
-            <h2 class="section-title">Our Love Story</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">🎮</div>
-                    <div class="timeline-content">
-                        <h3>We Met on Valorant</h3>
-                        <p>The "Kulang kami isa, sali ka?" that changed our lives forever. Little did we know that one game would lead to something so beautiful.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">💬</div>
-                    <div class="timeline-content">
-                        <h3>Late Night Talks</h3>
-                        <p>From Discord friends to duo queueing in Valorant, late night talks and watching movies through Discord. Every conversation made me fall harder for you.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">💕</div>
-                    <div class="timeline-content">
-                        <h3>June 29, 2023</h3>
-                        <p>The day you officially became my Ella. The best decision of my life was choosing to love you.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">🥰</div>
-                    <div class="timeline-content">
-                        <h3>We Met IRL</h3>
-                        <p>The day I finally saw you in person  I was so nervous because I didn't think you'd like the way I looked. But you were so beautiful. Reality was even better than I imagined.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-icon">🌟</div>
-                    <div class="timeline-content">
-                        <h3>Our Forever</h3>
-                        <p>And this is just the beginning. Every day with you is a new page of our never ending book.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        function showLetter() {
+            const element = document.getElementById('letter');
+            letterShown = !letterShown;
+            element.classList.toggle('active');
+            createSparkles(event);
+        }
 
-    <!-- Reasons Section -->
-    <section class="reasons">
-        <div class="container">
-            <h2 class="section-title">Things I Adore About You</h2>
-            <div class="reasons-grid">
-                <div class="reason-card">
-                    <span class="reason-icon">✨</span>
-                    <h3>Your Beautiful Soul</h3>
-                    <p>The way you care, the way you love  your soul is pure. I'm lucky to have someone like you.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="reason-icon">🎮</span>
-                    <h3>My Gaming Partner</h3>
-                    <p>Dream duo, dream movie buddies, dream wife. You're the best partner I could ever ask for.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="reason-icon">💪</span>
-                    <h3>Your Strength</h3>
-                    <p>You handle our LDR with so much grace. Your patience amazes me every day.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="reason-icon">🌷</span>
-                    <h3>Your Everything</h3>
-                    <p>Like your favorite tulips, you bring color and beauty to my life.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="reason-icon">😊</span>
-                    <h3>Your Smile</h3>
-                    <p>Damn, I could look at it everyday and never get tired of it. It's the kind of smile that makes all of my problems go away.</p>
-                </div>
-                <div class="reason-card">
-                    <span class="reason-icon">💭</span>
-                    <h3>Your Mind</h3>
-                    <p>Your thoughts, your dreams, your ideas  I could listen to you forever.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2 class="section-title">Our Beautiful Memories</h2>
-            <p class="gallery-subtitle">Every picture tells our story, Ella 📸</p>
+        function showCountdown() {
+            const element = document.getElementById('countdown');
+            countdownShown = !countdownShown;
+            element.classList.toggle('active');
             
-            <!-- Slideshow Mode Toggle -->
-            <button class="slideshow-toggle" id="slideshow-toggle">▶️ Start Slideshow</button>
-            
-            <div class="gallery-grid" id="gallery-grid">
-                <!-- Photo 1 -->
-                <div class="gallery-item">
-                    <div class="photo-frame">
-                        <img src="1.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">Our first adventure together 💕</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">This was the day I knew you were special... <span class="signature">-Andrei</span></p>
-                </div>
+            if (countdownShown) {
+                // Calculate days since a special date (modify this date as needed)
+                const startDate = new Date('2024-01-01');
+                const today = new Date();
+                const diffTime = Math.abs(today - startDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                document.getElementById('days').textContent = diffDays;
+            }
+            createSparkles(event);
+        }
 
-                <!-- Photo 2 -->
-                <div class="gallery-item">
-                    <div class="photo-frame">
-                        <img src="2.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">That perfect moment ✨</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">Your smile makes everything brighter... <span class="signature">-Andrei</span></p>
-                </div>
+        function showPhotoMessage(photoNum) {
+            const messages = [
+                "This represents every time you made me smile! 😊",
+                "This captures all our amazing conversations! 💬",
+                "This is for every laugh we've shared! 😄",
+                "This symbolizes all the joy you bring! 🌈"
+            ];
+            alert(messages[photoNum - 1]);
+            createSparkles(event);
+        }
 
-                <!-- Photo 3 -->
-                <div class="gallery-item">
-                    <div class="photo-frame">
-                        <img src="3.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">Forever grateful 💖</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">One of my favorite memories with you... <span class="signature">-Andrei</span></p>
-                </div>
+        function revealSecret() {
+            document.getElementById('secret').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            createSparkles(event);
+        }
 
-                <!-- Photo 4 -->
-                <div class="gallery-item">
-                    <div class="photo-frame">
-                        <img src="4.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">My favorite person 🌸</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">I fall more in love every day... <span class="signature">-Andrei</span></p>
-                </div>
+        function closeSecret() {
+            document.getElementById('secret').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
 
-                <!-- Photo 5 -->
-                <div class="gallery-item">
-                    <div class="photo-frame landscape">
-                        <img src="5.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">Making memories 💝</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">Every moment is precious with you... <span class="signature">-Andrei</span></p>
-                </div>
-
-                <!-- Photo 6 -->
-                <div class="gallery-item">
-                    <div class="photo-frame">
-                        <img src="6.JPG" alt="Our memory together" class="gallery-img">
-                        <div class="photo-overlay">
-                            <p class="photo-caption">Always and forever 💕</p>
-                        </div>
-                    </div>
-                    <p class="photo-message">Here's to many more adventures together... <span class="signature">-Andrei</span></p>
-                </div>
-            </div>
-            
-            <!-- Fullscreen Slideshow -->
-            <div class="slideshow-fullscreen" id="slideshow-fullscreen">
-                <button class="slideshow-close" id="slideshow-close">×</button>
-                <button class="slideshow-nav slideshow-prev" id="slideshow-prev">❮</button>
-                <button class="slideshow-nav slideshow-next" id="slideshow-next">❯</button>
-                <div class="slideshow-content">
-                    <img src="" alt="" class="slideshow-img" id="slideshow-img">
-                    <p class="slideshow-caption" id="slideshow-caption"></p>
-                    <p class="slideshow-message" id="slideshow-message"></p>
-                </div>
-                <div class="slideshow-progress">
-                    <div class="slideshow-progress-bar" id="slideshow-progress-bar"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Starry Night / Constellation Section -->
-    <section class="starry-night" id="starry-night">
-        <canvas id="stars-canvas"></canvas>
-        <div class="constellation-message">
-            <h2 class="constellation-title">Written in the Stars</h2>
-            
-            <!-- Star Facts Carousel with Arrows -->
-            <div class="star-facts-wrapper">
-                <button class="star-nav star-prev" id="star-prev">❮</button>
-                <div class="star-facts-carousel" id="star-facts-carousel">
-                    <div class="star-fact active">
-                        <p class="constellation-text">They say true love is written in the stars...</p>
-                        <p class="constellation-text">Look up, Ella, the universe knows we belong together.</p>
-                    </div>
-                    <div class="star-fact">
-                        <p class="star-sign">♈ Aries + ♉ Taurus</p>
-                        <p class="constellation-text">Andrei (April 17) is Aries, Eliza (April 22) is Taurus. Fire meets Earth. 🔥🌍</p>
-                    </div>
-                    <div class="star-fact">
-                        <p class="star-sign">💕 Perfect Match</p>
-                        <p class="constellation-text">Aries brings excitement, Taurus brings stability. Together, we balance perfectly.</p>
-                    </div>
-                    <div class="star-fact">
-                        <p class="star-sign">⭐ Fun Fact</p>
-                        <p class="constellation-text">Aries is ruled by Mars, Taurus by Venus. Passion and love, meant to be!</p>
-                    </div>
-                    <div class="star-fact">
-                        <p class="star-sign">🌙 Cosmic Connection</p>
-                        <p class="constellation-text">Both April babies, only 5 days apart. The stars aligned for us. 💫</p>
-                    </div>
-                </div>
-                <button class="star-nav star-next" id="star-next">❯</button>
-            </div>
-            
-            <div class="our-names">
-                <span class="star-name">Eliza</span>
-                <span class="star-heart">💫</span>
-                <span class="star-name">&</span>
-                <span class="star-heart">💫</span>
-                <span class="star-name">Andrei</span>
-            </div>
-            <p class="constellation-text small">Click anywhere to create a shooting star ⭐</p>
-        </div>
-    </section>
-
-    <!-- Tulip Garden Section -->
-    <section class="tulip-garden" id="tulip-garden">
-        <div class="garden-sky">
-            <div class="sun"></div>
-            <div class="cloud cloud-1"></div>
-            <div class="cloud cloud-2"></div>
-            <div class="cloud cloud-3"></div>
-            <div class="butterflies" id="butterflies"></div>
-        </div>
-        
-        <div class="garden-content">
-            <h2 class="tulip-title">A Garden of Tulips for My Ella 🌷</h2>
-            <p class="tulip-subtitle">Click anywhere in the garden to plant a tulip for you</p>
-        </div>
-        
-        <div class="tulip-field-container">
-            <!-- Background grass layers -->
-            <div class="grass-layer grass-back"></div>
-            <div class="grass-layer grass-mid"></div>
-            <div class="grass-layer grass-front"></div>
-            
-            <!-- Main tulip field -->
-            <div class="tulip-field" id="tulip-field">
-                <!-- Row 1 - Back -->
-                <div class="tulip-row row-back">
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.3s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 320; --delay: 0.2s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 0; --delay: 0.4s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 330; --delay: 0.15s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.35s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.25s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.45s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 315; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 5; --delay: 0.5s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                </div>
+        function createSparkles(event) {
+            for (let i = 0; i < 10; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.textContent = ['✨', '💫', '⭐', '🌟'][Math.floor(Math.random() * 4)];
+                sparkle.style.left = (event.clientX + (Math.random() - 0.5) * 100) + 'px';
+                sparkle.style.top = (event.clientY + (Math.random() - 0.5) * 100) + 'px';
+                sparkle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                document.body.appendChild(sparkle);
                 
-                <!-- Row 2 - Mid Back -->
-                <div class="tulip-row row-mid-back">
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.2s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 330; --delay: 0.4s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.3s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.5s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 320; --delay: 0.15s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 0; --delay: 0.35s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.25s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 315; --delay: 0.45s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.05s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 5; --delay: 0.55s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                </div>
-                
-                <!-- Row 3 - Middle -->
-                <div class="tulip-row row-mid">
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.3s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 325; --delay: 0.5s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.2s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.4s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.15s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 0; --delay: 0.35s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 320; --delay: 0.25s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.45s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.05s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 330; --delay: 0.55s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.6s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                </div>
-                
-                <!-- Row 4 - Mid Front -->
-                <div class="tulip-row row-mid-front">
-                    <div class="tulip-3d" style="--hue: 330; --delay: 0.4s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.2s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.5s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.3s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.45s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 325; --delay: 0.15s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 0; --delay: 0.35s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.55s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 320; --delay: 0.25s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.6s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.08s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.65s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                </div>
-                
-                <!-- Row 5 - Front -->
-                <div class="tulip-row row-front">
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.5s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.3s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.1s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.4s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.2s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 325; --delay: 0.45s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 0; --delay: 0.15s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 345; --delay: 0.35s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 330; --delay: 0.55s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 355; --delay: 0.25s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 340; --delay: 0.6s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 320; --delay: 0.08s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 350; --delay: 0.65s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                    <div class="tulip-3d" style="--hue: 335; --delay: 0.7s;"><div class="tulip-stem"></div><div class="tulip-leaves"></div><div class="tulip-bloom"></div></div>
-                </div>
-            </div>
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        }
+
+        // Add random floating hearts periodically
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = ['💕', '💖', '💗', '💝', '💘', '💓'][Math.floor(Math.random() * 6)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.top = Math.random() * 100 + '%';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
             
-            <!-- Petals falling -->
-            <div class="falling-petals" id="falling-petals"></div>
-        </div>
-        
-        <div class="garden-message">
-            <div class="message-card">
-                <p class="garden-text">Just like these tulips bloom beautifully with the right care and love, so does my love for you grow stronger every single day, my Ella.</p>
-                <p class="garden-text">Each flower in this garden represents a moment I've cherished with you, a memory we've made, a dream we share.</p>
-                <p class="garden-text highlight">You deserve all the tulips in the world. 🌷</p>
-                <div class="planted-counter">
-                    <span id="tulip-counter">0</span> tulips planted with love 💕
-                </div>
-            </div>
-        </div>
-    </section>
+            setTimeout(() => heart.remove(), 6000);
+        }, 3000);
 
-    <!-- Promises / Wishes Section -->
-    <section class="promises-section">
-        <div class="container">
-            <h2 class="section-title">My Promises to You</h2>
-            <div class="promises-container">
-                <div class="promise-card" data-promise="1">
-                    <div class="promise-icon">🤝</div>
-                    <h3>I Promise</h3>
-                    <p>To always be your best friend, your partner in crime, and your biggest supporter.</p>
-                </div>
-                <div class="promise-card" data-promise="2">
-                    <div class="promise-icon">🛡️</div>
-                    <h3>I Promise</h3>
-                    <p>To protect your heart and cherish your love like the precious gift it is.</p>
-                </div>
-                <div class="promise-card" data-promise="3">
-                    <div class="promise-icon">🎮</div>
-                    <h3>I Promise</h3>
-                    <p>To be your partner in everything  in Valorant and in life. Partners forever.</p>
-                </div>
-                <div class="promise-card" data-promise="4">
-                    <div class="promise-icon">🌙</div>
-                    <h3>I Promise</h3>
-                    <p>To stay up late talking with you, no matter how tired I am, because your voice is my favorite sound.</p>
-                </div>
-                <div class="promise-card" data-promise="5">
-                    <div class="promise-icon">✈️</div>
-                    <h3>I Promise</h3>
-                    <p>To close the distance between us  I promise to change the distance between us someday.</p>
-                </div>
-                <div class="promise-card" data-promise="6">
-                    <div class="promise-icon">💍</div>
-                    <h3>I Promise</h3>
-                    <p>To love you more with each passing day, and to one day make all our dreams come true together.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        // Add click effect to title
+        document.querySelector('h1').addEventListener('click', function(e) {
+            this.style.transform = 'scale(1.1) rotate(5deg)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1) rotate(0deg)';
+            }, 300);
+            createSparkles(e);
+        });
+    </script>
 
-    <!-- Final Message Section -->
-    <section class="final-message">
-        <div class="container">
-            <div class="message-box">
-                <h2 class="final-title">I Love You, My Ella</h2>
-                <p class="final-text">
-                    From Valorant to real life, from Batangas to Bulacan, from city girl to probinsyano  no distance could ever change how I love you. You are my today and all of my tomorrows.
-                </p>
-                <p class="final-text">
-                    Thank you for being mine. Thank you for loving me despite the distance and shortcomings. Thank you for making my everyday worth looking forward to.
-                </p>
-                <p class="final-text ldr-text">
-                    🌷 Batangas ← 💕 → Bulacan 🌷<br>
-                    <span class="distance-note">Distance means nothing when someone means everything</span>
-                </p>
-                <div class="heart-animation" id="main-heart">
-                    <span class="big-heart">💖</span>
-                </div>
-                <p class="anniversary-counter" id="anniversary-counter"></p>
-                
-                <!-- Secret Easter Egg -->
-                <div class="secret-message" id="secret-message">
-                    <p>🎉 You found a secret! 🎉</p>
-                    <p>Click the heart 10 times for a surprise!</p>
-                    <div class="click-counter">Clicks: <span id="heart-clicks">0</span>/10</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Made with 💕 just for you, my Ella</p>
-        <p class="date">Since June 29, 2023 🌷</p>
-        <p class="easter-egg-hint" id="easter-egg-hint">Psst... try clicking on different things 😉</p>
+    <footer style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); text-align: center; color: white; font-size: 0.9em; z-index: 1;">
+        <p>Coded with love just for you my Ella</p>
+        <p class="easter-egg-hint" id="easter-egg-hint">Just try clicking on different things 😉</p>
     </footer>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" aria-label="Close">&times;</button>
-        <img src="" alt="" class="lightbox-img" id="lightbox-img">
-        <p class="lightbox-caption" id="lightbox-caption"></p>
-    </div>
-
-    <!-- Confetti Canvas -->
-    <canvas id="confetti-canvas"></canvas>
-
-    <!-- Fireworks Canvas -->
-    <canvas id="fireworks-canvas"></canvas>
-
-    <script src="script.js"></script>
 </body>
 </html>
