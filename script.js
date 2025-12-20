@@ -615,6 +615,38 @@ const gardenObserver = new IntersectionObserver((entries) => {
 const tulipField = document.getElementById('tulip-field');
 if (tulipField) gardenObserver.observe(tulipField);
 
+// ===== Ocean Bubbles =====
+function initOceanBubbles() {
+    const bubblesContainer = document.getElementById('ocean-bubbles');
+    if (!bubblesContainer) return;
+    
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        const size = Math.random() * 25 + 8;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + '%';
+        const duration = Math.random() * 6 + 6;
+        bubble.style.animationDuration = duration + 's';
+        bubble.style.animationDelay = (Math.random() * 2) + 's';
+        bubblesContainer.appendChild(bubble);
+        
+        setTimeout(() => bubble.remove(), (duration + 3) * 1000);
+    }
+    
+    // Create bubbles more frequently
+    setInterval(createBubble, 300);
+    
+    // Initial burst of bubbles
+    for (let i = 0; i < 20; i++) {
+        setTimeout(createBubble, i * 100);
+    }
+}
+
+// Initialize ocean bubbles
+initOceanBubbles();
+
 // ===== Console Love Message =====
 console.log('%c💕 Made with love for Ella 💕', 'font-size: 24px; color: #e91e63; font-weight: bold;');
 console.log('%cThis website was created to show how much you mean to me!', 'font-size: 14px; color: #ff6b9d;');

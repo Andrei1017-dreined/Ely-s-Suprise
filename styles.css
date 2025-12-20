@@ -66,9 +66,9 @@ body { font-family: var(--font-body); color: var(--dark-color); background: var(
 .hero .title { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 6rem); color: var(--primary-color); text-shadow: 3px 3px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
 .hero .subtitle { font-family: var(--font-elegant); font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--dark-color); margin-bottom: 15px; }
 .anniversary-badge { font-family: var(--font-romantic); font-size: 1.3rem; color: var(--primary-color); background: rgba(255,255,255,0.8); padding: 10px 25px; border-radius: 50px; display: inline-block; margin-bottom: 30px; box-shadow: var(--shadow-soft); }
-.surprise-btn { padding: 15px 40px; font-family: var(--font-display); font-size: 1.5rem; background: var(--primary-color); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: var(--shadow-soft); }
+.surprise-btn { padding: 15px 40px; font-family: var(--font-display); font-size: 1.5rem; background: var(--primary-color); color: white; border: none; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; box-shadow: var(--shadow-soft); margin-bottom: 60px; }
 .surprise-btn:hover { transform: scale(1.05); background: var(--secondary-color); box-shadow: var(--shadow-hover); }
-.scroll-indicator { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 2rem; color: var(--primary-color); animation: bounce 2s infinite; cursor: pointer; }
+.scroll-indicator { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 2rem; color: var(--primary-color); animation: bounce 2s infinite; cursor: pointer; z-index: 10; }
 @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
 .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
 .animate-fade-in-delay { animation: fadeIn 1s ease-out 0.3s forwards; opacity: 0; }
@@ -221,6 +221,61 @@ body { font-family: var(--font-body); color: var(--dark-color); background: var(
 .star-sign { font-family: var(--font-cursive); font-size: 1.8rem; color: var(--gold-color); text-shadow: 0 0 15px var(--gold-color); margin-bottom: 10px; }
 .star-nav { background: rgba(255, 255, 255, 0.1); border: 2px solid var(--gold-color); color: var(--gold-color); font-size: 1.5rem; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: all 0.3s; flex-shrink: 0; }
 .star-nav:hover { background: var(--gold-color); color: #0f0c29; transform: scale(1.1); }
+
+/* Ocean Depth Section */
+.ocean-section { position: relative; min-height: 100vh; background: linear-gradient(180deg, #87CEEB 0%, #1E90FF 8%, #0077be 20%, #005a8c 35%, #003d5c 50%, #002233 65%, #001522 80%, #000a11 100%); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.ocean-surface { position: absolute; top: 0; left: 0; width: 100%; height: 120px; overflow: hidden; }
+.wave { position: absolute; width: 200%; height: 100px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,60 C300,100 400,20 600,60 C800,100 900,20 1200,60 L1200,0 L0,0 Z' fill='%2387CEEB'/%3E%3C/svg%3E") repeat-x; animation: waveMove 8s linear infinite; }
+.wave1 { opacity: 1; animation-duration: 7s; }
+.wave2 { opacity: 0.7; animation-duration: 9s; top: 15px; }
+.wave3 { opacity: 0.4; animation-duration: 11s; top: 30px; }
+.wave4 { opacity: 0.2; animation-duration: 13s; top: 45px; }
+@keyframes waveMove { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+#ocean-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+.ocean-content { position: relative; z-index: 2; text-align: center; padding: 140px 20px 60px; max-width: 900px; }
+.ocean-title { font-family: var(--font-cursive); font-size: clamp(2.5rem, 7vw, 4.5rem); color: #fff; text-shadow: 0 0 40px rgba(0, 200, 255, 0.9), 0 0 80px rgba(0, 150, 255, 0.5); margin-bottom: 50px; animation: titleFloat 4s ease-in-out infinite; }
+@keyframes titleFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.ocean-message { margin-top: 30px; padding: 40px; background: rgba(0, 50, 100, 0.3); border-radius: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+.ocean-text { font-family: var(--font-elegant); font-size: 1.4rem; color: rgba(255,255,255,0.95); line-height: 2; margin: 20px 0; }
+.ocean-text.fade-in { animation: fadeInUp 1s ease-out both; }
+.ocean-text:nth-child(1) { animation-delay: 0.3s; }
+.ocean-text:nth-child(3) { animation-delay: 0.9s; }
+.ocean-text:nth-child(4) { animation-delay: 1.2s; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.ocean-text.highlight { font-family: var(--font-cursive); font-size: clamp(1.5rem, 4vw, 2.2rem); color: #fff; text-shadow: 0 0 30px rgba(255, 105, 180, 0.9), 0 0 60px rgba(255, 105, 180, 0.5); animation: fadeInUp 1s ease-out 0.6s both, heartPulse 2s ease-in-out infinite 1.6s; }
+@keyframes heartPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px rgba(255, 105, 180, 0.9); } 50% { transform: scale(1.03); text-shadow: 0 0 50px rgba(255, 105, 180, 1), 0 0 80px rgba(255, 105, 180, 0.7); } }
+.ocean-text.small { font-size: 1.1rem; opacity: 0.85; margin-top: 30px; }
+.ocean-text.small.glow { animation: fadeInUp 1s ease-out 1.2s both, subtleGlow 3s ease-in-out infinite 2.2s; }
+@keyframes subtleGlow { 0%, 100% { text-shadow: 0 0 10px rgba(0, 200, 255, 0.5); } 50% { text-shadow: 0 0 25px rgba(0, 200, 255, 0.8), 0 0 40px rgba(255, 105, 180, 0.4); } }
+.heart-anchor { font-size: 3rem; margin-top: 30px; animation: anchorBob 3s ease-in-out infinite; }
+@keyframes anchorBob { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.ocean-bubbles { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; }
+.bubble { position: absolute; bottom: -50px; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(255,255,255,0.1)); border-radius: 50%; animation: bubbleRise 8s ease-in infinite; box-shadow: inset 0 0 10px rgba(255,255,255,0.5); }
+@keyframes bubbleRise { 0% { transform: translateY(0) translateX(0) scale(1); opacity: 0.9; } 25% { transform: translateY(-25vh) translateX(10px) scale(0.95); } 50% { transform: translateY(-50vh) translateX(-10px) scale(0.85); } 75% { transform: translateY(-75vh) translateX(5px) scale(0.7); } 100% { transform: translateY(-100vh) translateX(0) scale(0.4); opacity: 0; } }
+.ocean-fish { position: absolute; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.fish { position: absolute; font-size: 2rem; animation: fishSwim 15s linear infinite; filter: drop-shadow(0 0 10px rgba(0,0,0,0.3)); }
+.fish1 { top: 20%; animation-duration: 14s; font-size: 2.2rem; }
+.fish2 { top: 35%; animation-duration: 18s; animation-delay: -5s; }
+.fish3 { top: 45%; animation-duration: 16s; animation-delay: -10s; }
+.fish4 { top: 55%; animation-duration: 22s; animation-delay: -3s; font-size: 2.8rem; }
+.fish5 { top: 65%; animation-duration: 20s; animation-delay: -8s; font-size: 2.5rem; }
+.fish6 { top: 75%; animation-duration: 25s; animation-delay: -12s; font-size: 2.3rem; }
+.fish7 { top: 30%; animation-duration: 12s; animation-delay: -2s; font-size: 2.6rem; }
+.fish8 { top: 80%; animation-duration: 30s; animation-delay: -15s; font-size: 4rem; }
+@keyframes fishSwim { 0% { left: -15%; transform: scaleX(1) translateY(0); } 25% { transform: scaleX(1) translateY(-20px); } 49% { transform: scaleX(1) translateY(10px); } 50% { left: 115%; transform: scaleX(-1) translateY(0); } 75% { transform: scaleX(-1) translateY(20px); } 99% { transform: scaleX(-1) translateY(-10px); } 100% { left: -15%; transform: scaleX(1) translateY(0); } }
+.ocean-floor { position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; display: flex; align-items: flex-end; justify-content: space-around; padding: 0 5%; z-index: 1; }
+.coral, .seashell, .starfish { animation: oceanFloorSway 4s ease-in-out infinite; display: inline-block; }
+.coral { font-size: 2.5rem; }
+.coral1 { animation-delay: 0s; }
+.coral2 { animation-delay: 0.5s; }
+.coral3 { animation-delay: 1s; font-size: 2rem; }
+.coral4 { animation-delay: 1.5s; }
+.seashell { font-size: 1.8rem; }
+.shell1 { animation-delay: 0.3s; }
+.shell2 { animation-delay: 0.8s; }
+.starfish { font-size: 2rem; animation: starfishGlow 2s ease-in-out infinite; }
+@keyframes oceanFloorSway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+@keyframes starfishGlow { 0%, 100% { filter: drop-shadow(0 0 5px gold); } 50% { filter: drop-shadow(0 0 15px gold) drop-shadow(0 0 25px orange); } }
 
 /* Tulip Garden Section */
 .tulip-garden { padding: 0; position: relative; min-height: 100vh; overflow: hidden; }
